@@ -4,6 +4,7 @@
 import { useEffect, useState } from 'react';
 import styles from './page.module.css';
 import { signIn, signOut, useSession } from 'next-auth/react';
+import AuthProvider from '@components/AuthProvider';
 
 export default function Home() {
   const { data: session } = useSession();
