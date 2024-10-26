@@ -1,3 +1,4 @@
+// app/page.js
 'use client';
 
 import { useEffect, useState } from 'react';
@@ -19,10 +20,10 @@ export default function Home() {
     const res = await signIn('credentials', { redirect: false, email, password });
     if (res?.error) alert(res.error);
   };
+  console.log(session);
 
   useEffect(() => {
     if (session) {
-      setEmail(session.user.email); // Set the user email from the session
       fetchItems(); // Fetch items only if the user is logged in
     }
   }, [session]);
@@ -102,7 +103,7 @@ export default function Home() {
       {session ? (
         <div className={styles.userInfo}>
           <h1>Welcome, {session.user.name || 'User'}</h1>
-          <p>Email: {email}</p> {/* Display the user's email */}
+          <p>Email: {session.user.email}</p>
           <button onClick={() => signOut()}>Logout</button>
 
           <h2>Items</h2>

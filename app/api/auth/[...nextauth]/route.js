@@ -22,7 +22,7 @@ export const authOptions = {
                         const newUser = await User.create({
                             name: credentials.email.split('@')[0],
                             email: credentials.email,
-                            password: credentials.password, // Ensure proper handling here
+                            password: credentials.password,
                         });
                         return { email: newUser.email, name: newUser.name };
                     }

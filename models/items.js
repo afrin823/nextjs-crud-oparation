@@ -1,7 +1,7 @@
-// models/items.js
-import mongoose from 'mongoose';
+// models/Item.js
+import { Schema, model, models } from 'mongoose';
 
-const ItemSchema = new mongoose.Schema({
+const ItemSchema = new Schema({
   name: {
     type: String,
     required: true,
@@ -10,13 +10,6 @@ const ItemSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  userEmail: {
-    type: String,
-    required: true, // Ensure this field is required
-  },
-}, {
-  timestamps: true, // Automatically manage createdAt and updatedAt fields
-});
+}, { timestamps: true });
 
-const Item = mongoose.models.Item || mongoose.model('Item', ItemSchema);
-export default Item;
+export default models.Item || model('Item', ItemSchema);
