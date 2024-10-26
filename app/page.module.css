@@ -1,9 +1,9 @@
-/* General container styling for centering and responsiveness */
+
 .authContainer,
 .authContainer {
-  max-width: 400px; /* Reduced size */
+  max-width: 400px; 
   margin: 0 auto;
-  padding: 16px; /* Slightly smaller padding */
+  padding: 16px; 
   text-align: center;
 }
 
@@ -14,7 +14,6 @@
   text-align: center;
 }
 
-/* Auth Container Styling */
 .authContainer h1,
 .userInfo h1 {
   font-size: 1.8rem;
@@ -82,7 +81,6 @@
   cursor: pointer;
 }
 
-/* User Info section styling */
 .userInfo p {
   color: #555;
   font-size: 1.1rem;

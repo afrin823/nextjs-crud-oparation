@@ -102,10 +102,8 @@ export default function Home() {
       {session ? (
         <div className={styles.userInfo}>
           <h1>Welcome, {session.user.email || 'User'}</h1>
-          <p>Email: {session.user.email}</p>
           <button onClick={() => signOut()}>Logout</button>
 
-          <h2>Items</h2>
           <div className={styles.itemsContainer}>
             {items.map((item) => (
               <div key={item._id} className={styles.itemCard}>
