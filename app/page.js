@@ -1,4 +1,3 @@
-// app/page.js
 'use client';
 
 import { useEffect, useState } from 'react';
@@ -21,7 +20,6 @@ export default function Home() {
     const res = await signIn('credentials', { redirect: false, email, password });
     if (res?.error) alert(res.error);
   };
-  console.log(session);
 
   useEffect(() => {
     if (session) {
@@ -103,14 +101,14 @@ export default function Home() {
     <>
       {session ? (
         <div className={styles.userInfo}>
-          <h1>Welcome, {session.user.name || 'User'}</h1>
+          <h1>Welcome, {session.user.email || 'User'}</h1>
           <p>Email: {session.user.email}</p>
           <button onClick={() => signOut()}>Logout</button>
 
           <h2>Items</h2>
-          <div>
+          <div className={styles.itemsContainer}>
             {items.map((item) => (
-              <div key={item._id}>
+              <div key={item._id} className={styles.itemCard}>
                 <h3>{item.name}</h3>
                 <p>{item.description}</p>
                 <button onClick={() => { 
@@ -149,7 +147,7 @@ export default function Home() {
           </button>
         </div>
       ) : (
-        <>
+        <div className={styles.authContainer}>
           <h1>{isSignUp ? 'Sign Up' : 'Login'}</h1>
           <form onSubmit={handleSubmit} className={styles.form}>
             <label>
@@ -172,13 +170,13 @@ export default function Home() {
             </label>
             <button type="submit">{isSignUp ? 'Sign Up' : 'Sign In'}</button>
           </form>
-          <p>
+          <p className={styles.promptText}>
             {isSignUp ? 'Already have an account?' : "Don't have an account?"}
-            <button onClick={() => setIsSignUp(!isSignUp)}>
+            <button onClick={() => setIsSignUp(!isSignUp)} className={styles.toggleButton}>
               {isSignUp ? 'Sign In' : 'Sign Up'}
             </button>
           </p>
-        </>
+        </div>
       )}
     </>
   );
