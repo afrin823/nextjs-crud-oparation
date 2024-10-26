@@ -11,7 +11,7 @@ export const connectToDB=async()=>{
     }
 
     try{
-        await mongoose.connect('mongodb://localhost:27017/NextLoginTut')
+        await mongoose.connect('mongodb+srv://nextjscrud:70KJnppvQ4WN8z2d@cluster0.zxtia.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
 
         isConnected=true
         console.log("connected to mongodb")
